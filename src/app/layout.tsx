@@ -30,7 +30,7 @@ export default function RootLayout({
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
 				<SidebarProvider>
 					<AppSidebar />
-					<main>
+					<main className='h-[95vh] w-full'>
 						<SidebarTrigger />
 						{children}
 					</main>

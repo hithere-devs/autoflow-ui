@@ -1,7 +1,8 @@
 import React from 'react';
+import Flow from './react-flow';
 
 const Pipelines = () => {
-	return <div>Pipelines</div>;
+	return <Flow />;
 };
 
 export default Pipelines;
