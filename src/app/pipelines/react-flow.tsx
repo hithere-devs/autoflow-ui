@@ -22,7 +22,18 @@ export default function App() {
 	const [edges, setEdges, onEdgesChange] =
 		useEdgesState<CustomEdgeType>(initialEdges);
 	const onConnect: OnConnect = useCallback(
-		(connection) => setEdges((edges) => addEdge(connection, edges)),
+		(connection) => {
+			// create an edge
+			const newEdge = {
+				id: `${connection.source}->${connection.target}`,
+				source: connection.source,
+				target: connection.target,
+				type: 'button-edge',
+				animated: true,
+			};
+			// add the edge to the list of edges
+			setEdges((prev) => [...prev, newEdge]);
+		},
 		[setEdges]
 	);
 
