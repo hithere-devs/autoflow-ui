@@ -17,7 +17,8 @@ import '@xyflow/react/dist/style.css';
 import { initialNodes, nodeTypes, type CustomNodeType } from './nodes';
 import { initialEdges, edgeTypes, type CustomEdgeType } from './edges';
 
-export default function App() {
+export default function Flow() {
+	const gridSize = 15;
 	const [nodes, , onNodesChange] = useNodesState<CustomNodeType>(initialNodes);
 	const [edges, setEdges, onEdgesChange] =
 		useEdgesState<CustomEdgeType>(initialEdges);
@@ -48,7 +49,7 @@ export default function App() {
 			onConnect={onConnect}
 			fitView
 		>
-			<Background />
+			<Background gap={gridSize} />
 			<MiniMap />
 			<Controls />
 		</ReactFlow>
