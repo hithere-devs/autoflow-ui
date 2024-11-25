@@ -9,11 +9,13 @@ export default function TextareaLimit({
 	maxLength = 100,
 	value: initialValue = '',
 	className,
+	notes = false,
 }: {
 	label: string;
 	maxLength?: number;
 	value?: string;
 	className?: string;
+	notes?: boolean;
 }) {
 	const {
 		value,
@@ -24,7 +26,14 @@ export default function TextareaLimit({
 
 	return (
 		<div className='space-y-2'>
-			<Label className='text-sm font-medium text-gray-200'>{label}</Label>
+			<Label
+				className={cn(
+					'text-sm font-medium',
+					notes ? 'text-yellow-800' : 'text-gray-200'
+				)}
+			>
+				{label}
+			</Label>
 			<Textarea
 				value={value}
 				maxLength={maxLength}

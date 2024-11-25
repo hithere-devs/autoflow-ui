@@ -4,6 +4,7 @@ import PositionLoggerNode, {
 } from './node-types/poistion-logger';
 import { AINode } from './node-types/ai-node';
 import { TextNode } from './node-types/text-node';
+import { NotesNode } from './node-types/notes-node';
 
 export const initialNodes = [
 	{
@@ -37,6 +38,14 @@ export const initialNodes = [
 			variables: ['Hi', 'there'],
 		},
 	},
+	{
+		id: 'z',
+		type: 'notes-node',
+		position: { x: 73, y: 400 },
+		data: {
+			content: 'This is just a sample notes node with variables',
+		},
+	},
 	{ id: 'c', position: { x: 100, y: 100 }, data: { label: 'your ideas' } },
 	{
 		id: 'd',
@@ -50,6 +59,7 @@ export const nodeTypes = {
 	'position-logger': PositionLoggerNode,
 	'ai-node': AINode,
 	'text-node': TextNode,
+	'notes-node': NotesNode,
 	// Add any of your custom nodes here!
 } satisfies NodeTypes;
 
