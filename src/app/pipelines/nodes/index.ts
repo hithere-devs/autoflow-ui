@@ -3,6 +3,7 @@ import PositionLoggerNode, {
 	type PositionLoggerNode as PositionLoggerNodeType,
 } from './node-types/poistion-logger';
 import { AINode } from './node-types/ai-node';
+import { TextNode } from './node-types/text-node';
 
 export const initialNodes = [
 	{
@@ -20,11 +21,20 @@ export const initialNodes = [
 	{
 		id: 'x',
 		type: 'ai-node',
-		position: { x: 266, y: -59 },
+		position: { x: -369, y: 88 },
 		data: {
 			system: "You're an AI Model to answer questions",
 			prompt: 'What is the meaning of life?',
 			model: 'gpt-4o',
+		},
+	},
+	{
+		id: 'y',
+		type: 'text-node',
+		position: { x: 370, y: 87 },
+		data: {
+			text: 'This is just a sample text node with variables, {{v1}} {{v2}}',
+			variables: ['Hi', 'there'],
 		},
 	},
 	{ id: 'c', position: { x: 100, y: 100 }, data: { label: 'your ideas' } },
@@ -39,6 +49,7 @@ export const initialNodes = [
 export const nodeTypes = {
 	'position-logger': PositionLoggerNode,
 	'ai-node': AINode,
+	'text-node': TextNode,
 	// Add any of your custom nodes here!
 } satisfies NodeTypes;
 
