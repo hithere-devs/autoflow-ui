@@ -1,3 +1,4 @@
+'use client';
 import {
 	Sidebar,
 	SidebarContent,
@@ -18,13 +19,14 @@ import {
 	Settings,
 	Store,
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export function AppSidebar() {
 	// Menu items.
 	const items = [
 		{
 			title: 'Pipelines',
-			url: 'pipelines',
+			url: '/pipelines',
 			icon: GitFork,
 		},
 		{
@@ -49,6 +51,13 @@ export function AppSidebar() {
 		},
 	];
 
+	const router = useRouter();
+
+	// Navigate to a URL.
+	const navigateToURL = (url: string) => () => {
+		router.replace(url);
+	};
+
 	return (
 		<Sidebar>
 			<SidebarContent>
@@ -59,10 +68,10 @@ export function AppSidebar() {
 							{items.map((item) => (
 								<SidebarMenuItem key={item.title}>
 									<SidebarMenuButton asChild>
-										<a href={item.url}>
+										<div onClick={navigateToURL(item.url)}>
 											<item.icon />
 											<span>{item.title}</span>
-										</a>
+										</div>
 									</SidebarMenuButton>
 								</SidebarMenuItem>
 							))}

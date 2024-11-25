@@ -1,4 +1,3 @@
-// ai-node.tsx
 import SelectModern from '@/components/ui/select-modern';
 import TextareaLimit from '@/components/ui/text-area-limit';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';

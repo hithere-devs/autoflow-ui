@@ -1,5 +1,3 @@
-// notes-node.tsx
-
 import TextareaLimit from '@/components/ui/text-area-limit';
 
 import { Node, NodeProps } from '@xyflow/react';

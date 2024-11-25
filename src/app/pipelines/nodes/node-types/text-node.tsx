@@ -1,4 +1,3 @@
-// text-node.tsx
 import TextareaLimit from '@/components/ui/text-area-limit';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import React from 'react';
