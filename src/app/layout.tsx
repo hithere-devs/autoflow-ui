@@ -3,6 +3,8 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/app-sidebar';
+import Providers from '@/lib/provider';
+import { QueryClient } from '@tanstack/react-query';
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 	description: 'Create your AI automation workflows with ease',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
@@ -28,13 +30,13 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
-				<SidebarProvider>
+				<Providers>
 					<AppSidebar />
 					<main className='h-[95vh] w-full'>
 						<SidebarTrigger />
 						{children}
 					</main>
-				</SidebarProvider>
+				</Providers>
 			</body>
 		</html>
 	);
