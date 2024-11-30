@@ -21,7 +21,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getPipeline } from '@/query/pipeline';
 
 export default function Flow({ id }: { id: string }) {
-	const gridSize = 15;
+	const gridSize = 10;
 	const [nodes, , onNodesChange] = useNodesState<CustomNodeType>(initialNodes);
 	const [edges, setEdges, onEdgesChange] =
 		useEdgesState<CustomEdgeType>(initialEdges);
@@ -37,6 +37,10 @@ export default function Flow({ id }: { id: string }) {
 		queryFn: () => getPipeline(id),
 		retry: 1,
 	});
+
+	// TODO -
+	// we have the pipeline data here where there are nodes and all the edges with the x,y coordinates of the nodes
+	// we can use this data to render the flow
 
 	const onConnect: OnConnect = useCallback(
 		(connection) => {
